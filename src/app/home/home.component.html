@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class="container py-4">
+  <!-- Título principal -->
+  <div class="text-center mb-5 mt-5">
+    <h1 class="fw-bold text-primary">Misterios {{ mistery?.title }}</h1>
+  </div>
+
+  <!-- Oraciones iniciales -->
+  <div class="card mb-4 shadow-sm border-0">
+    <div class="card-body">
+      <h5 class="text-secondary">{{ prayers?.first?.title }}</h5>
+      <p>{{ prayers?.first?.text }}</p>
+
+      <h5 class="text-secondary mt-4">{{ prayers?.second?.title }}</h5>
+      <p>{{ prayers?.second?.text }}</p>
+
+      <h5 class="text-secondary mt-4">{{ prayers?.third?.title }}</h5>
+      <p>{{ prayers?.third?.text }}</p>
+    </div>
+  </div>
+
+  <!-- Misterios -->
+  <div *ngFor="let item of mistery?.list; let i = index" class="card mb-4 shadow-sm border-0">
+    <div class="card-body">
+      <h4 class="card-title text-primary mb-3">{{item?.ordinal}} misterio: {{ item?.title }}</h4>
+      <p class="card-text">{{ item?.text }}</p>
+
+      <div class="mt-4">
+
+        <h6>{{ prayers?.fourth?.title }}</h6>
+        <p>{{ prayers?.fourth?.text }}</p>
+
+        <em>
+          <p>{{ prayers?.fifth?.text }}</p>
+        </em>
+
+        <em>Rezar 10</em>
+        <h6>{{ prayers?.sixth?.title }}</h6>
+        <p>{{ prayers?.sixth?.text }}</p>
+
+        <em>Al finalizar las {{ prayers?.sixth?.title }}</em>
+        <div class="ps-3 border-start border-3 border-primary">
+          <em>
+            <p>{{ prayers?.seventh?.text }}</p>
+          </em>
+          <em>
+            <p>{{ prayers?.eighth?.text }}</p>
+          </em>
+          <em>
+            <p>{{ prayers?.ninth?.text }}</p>
+          </em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card border-0 shadow-sm p-4 text-center custom-final-card">
+    <div class="card-body">
+      <i class="bi bi-cross fs-1 text-primary mb-3"></i>
+      <h5 class="text-primary fw-bold">{{ prayers?.tenth?.title }}</h5>
+      <p class="text-muted">{{ prayers?.tenth?.text }}</p>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+<nav class="navbar border-bottom shadow-sm py-2">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+
+    <div class="d-flex align-items-center">
+      <!-- Logo -->
+      <svg width="103" height="40" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#007BFF">
+          <rect x="10" y="5" width="6" height="40" rx="1" />
+          <rect x="0" y="14" width="26" height="6" rx="1" />
+        </g>
+        <text x="40" y="22" font-family="Arial, sans-serif" font-size="18" fill="#007BFF">Santo</text>
+        <text x="40" y="40" font-family="Arial, sans-serif" font-size="18" fill="#007BFF">Rosario</text>
+      </svg>
+    </div>
+
+    <div class="d-flex align-items-center gap-3">
+      <div class="text-muted small">
+        <strong>Día actual, {{ current }}</strong>
+      </div>
+
+      <button id="themeToggle" class="btn btn-outline-primary btn-sm" (click)="toggleTheme()" title="Cambiar tema">
+        🌓
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Botones pequeños y bajos solo con Bootstrap -->
+  <div class="w-100 d-flex justify-content-center mt-3">
+    <div class="btn-group btn-group-sm flex-wrap gap-1" role="group" aria-label="Selector de días">
+      <button *ngFor="let d of this.days" type="button" (click)="changeDay(d?.code)" [ngClass]="{
+        'btn': true,
+        'fs-5': true,
+        'btn-outline-primary': today?.code !== d.code,
+        'btn-primary': today?.code === d.code
+      }">
+        {{ d?.day }}
+      </button>
+    </div>
+  </div>
+
+</nav>
