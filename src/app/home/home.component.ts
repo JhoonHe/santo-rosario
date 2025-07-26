@@ -36,6 +36,8 @@ export class HomeComponent implements OnInit {
     this.mistery = this.data.misteries[this.data.days[today.getDay()].mistery];
     this.prayers = this.data['prayers'];
 
+    this.service.setTitle(this.data.days.find((d: any) => d.code == this.today).day);
+
     this.service.day.subscribe((day: string) => {
       if (!day) return;
       this.mistery = this.data.misteries[this.data.days.find((d: any) => d.code == day).mistery];

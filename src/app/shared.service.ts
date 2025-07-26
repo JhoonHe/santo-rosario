@@ -10,6 +10,7 @@ export class SharedService {
 
   data = new BehaviorSubject<string>('');
   day = new BehaviorSubject<string>('');
+  title = new BehaviorSubject<string>('');
 
   setData(data?: any): void {
     this.data.next(data || {});
@@ -17,5 +18,9 @@ export class SharedService {
 
   setDay(day?: string): void {
     this.day.next(day || '');
+  }
+
+  setTitle(title?: string): void {
+    this.title.next(`Santo Rosario: ${title || ''}`);
   }
 }
