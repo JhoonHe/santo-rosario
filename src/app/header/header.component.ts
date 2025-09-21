@@ -25,6 +25,8 @@ export class HeaderComponent implements OnInit {
 
       if (!this.data) return;
 
+      this.current = this.data.days.filter((d: any) => d.code === this.data.code)[0].day;
+
       this.days = [...this.data.days];
       this.days.sort((a: any, b: any) => {
         if (a.day === 'Domingo') return 1;
@@ -32,18 +34,22 @@ export class HeaderComponent implements OnInit {
         return 0;
       });
 
-      const param = this.activatedRoute.snapshot.paramMap.get('day');
+      this.activatedRoute.paramMap.subscribe(params => {
 
-      if (param) {
-        const param_day = this.data.days.filter((d: any) => this.removeAccent(d.day) === param)[0];
-        this.router.navigate([param_day.day]);
-        this.today = param_day;
-        return;
-      }
+        const param = params.get('day');
 
-      this.today = this.data.days.filter((d: any) => d.code === this.data.code)[0];
-      this.current = this.today.day;
-      this.router.navigate([this.removeAccent(this.current)]);
+        if (param) {
+          const param_day = this.data.days.find((d: any) => this.removeAccent(d.day) === param);
+
+          if (param_day) {
+            this.today = param_day;
+            return;
+          }
+        }
+
+        this.today = this.data.days.find((d: any) => d.code === this.data.code);
+        this.router.navigate(['/', this.removeAccent(this.today.day)]);
+      });
     });
   }
 
