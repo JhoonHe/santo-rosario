@@ -20,7 +20,7 @@ export class SharedService {
     this.day.next(day || '');
   }
 
-  setTitle(title?: string): void {
-    this.title.next(`Santo Rosario: ${title || ''}`);
-  }
+  // setTitle(title?: string): void {
+  //   this.title.next(`Santo Rosario: ${title || ''}`);
+  // }
 }
