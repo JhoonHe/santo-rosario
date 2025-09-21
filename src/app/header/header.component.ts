@@ -43,6 +43,7 @@ export class HeaderComponent implements OnInit {
 
           if (param_day) {
             this.today = param_day;
+            this.changeDay(this.today.code);
             return;
           }
         }
