@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
       this.service.day.subscribe((day: string) => {
         if (!day) return;
         this.mistery = this.data.misteries[this.data.days.find((d: any) => d.code == day).mistery];
+        this.today = this.data.days.filter((d: any) => d.code === day)[0];
       });
     } catch (error) {
       console.error('Error al cargar el JSON:', error);
