@@ -1,22 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-  --title-bg: #ffffff;
-  --title-color: #000000;
+  --bg: #ffffff;
+  --color: #000000;
 }
 
 body.dark-mode {
-  --title-bg: #121212;
-  --title-color: #f8f9fa;
+  --bg: #121212;
+  --color: #f8f9fa;
 }
 
 body.dark-mode {
-  background-color: var(--title-bg);
-  color: var(--title-color);
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 body.dark-mode .navbar {
-  background-color: var(--title-bg);
-  color: var(--title-color);
+  background-color: var(--bg);
+  color: var(--color);
 }
 
 body.dark-mode .card {
@@ -27,7 +27,6 @@ body.dark-mode .card {
 body.dark-mode .card .text-primary,
 body.dark-mode .text-primary {
   color: #90caf9 !important;
-  /* azul claro */
 }
 
 body.dark-mode .text-muted {
@@ -36,5 +35,5 @@ body.dark-mode .text-muted {
 
 body.dark-mode footer {
   background-color: #1e1e1e !important;
-  color: var(--title-color);
+  color: var(--color);
 }
